@@ -15,5 +15,19 @@ export class Master {
     return this.http.post(this.apiUrl + "Login", obj);
   }
 
+  getAllDept(){
+    return this.http.get(`${this.apiUrl}GetDepartments`)
+  }
 
+  createNewDept(obj:any){
+    return this.http.post(`${this.apiUrl}CreateDepartment`, obj)
+  }
+
+  updateDept(obj:any){
+    return this.http.put(`${this.apiUrl}UpdateDepartment`, obj)
+  }
+
+  deleteDept(id:number){
+    return this.http.delete(`${this.apiUrl}DeleteDepartment?id=${id}`)
+  }
 }
