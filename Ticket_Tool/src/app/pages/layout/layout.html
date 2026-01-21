@@ -1,6 +1,17 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
+    <li >
+      <a routerLink="dashboard">Dashboard</a>
+    </li>  
+    <li>
+      <a routerLink="department">Department</a>
+    </li>
+    <li>
+      <a>Dashboard</a>
+    </li>
+    <li>
+      <a>Dashboard</a>
+    </li>
     <form class="d-flex input-group w-auto">
       <button class="btn btn-outline-primary" type="button" (click)="onLogOut()">LogOut</button>
       <span class="input-group-text border-0" id="search-addon">
@@ -9,4 +20,4 @@
     </form>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> <!-- This is used to render the child component from router into this portion of the layout -->

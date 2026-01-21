@@ -1,3 +1,14 @@
-.btn {
-  padding: .55rem 1.5rem .45rem;
+a {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+}
+
+a:hover {
+  color: #007bff;
+}
+
+a.active {
+  font-weight: bold;
+  color: #0056b3;
 }
