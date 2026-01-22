@@ -13,13 +13,20 @@ export class Department {
 
   masterSrv= inject(Master);
 
-  hardValue: any={
-    "deptId": 0,
+  firstValue: any={
+    "deptId": 1,
     "deptName": "Software",
     "createDate": "30-06-2024"
   };
 
-  deptList: any[]=[this.hardValue];
+  secondValue: any={
+    "deptId": 2,
+    "deptName": "Hardware",
+    "createDate": "01-07-2024"
+  };
+
+  deptList: any[]=[this.firstValue, this.secondValue];
+
   newDeptObj: any={
     "deptId": 0,
     "deptName": "",
@@ -49,5 +56,42 @@ export class Department {
         alert(res.message);
       }
     })
+  }
+
+  updateDept(){
+    // debugger;
+    this.masterSrv.updateDept(this.newDeptObj).subscribe((res:any)=>{
+      console.log(res);
+      if(res.result){
+        
+        alert("Department Updated Successfully");
+        this.getDept();
+      }
+      else{
+        alert(res.message);
+      }
+    })
+  }
+
+  onEdit(data: any){
+    this.newDeptObj=data;
+  }
+
+  onDelete(deptId: number){
+    const isDelete = confirm("Are you sure you want to delete this department?");
+    if(isDelete){
+      this.masterSrv.deleteDept(deptId).subscribe((res:any)=>{
+        console.log(res.result)
+        if(res.result){
+          // Remove from UI list directly using filter
+          this.deptList = this.deptList.filter(dept => dept.deptId !== deptId);
+          alert("Department Deleted Successfully");
+          // this.getDept();
+        }
+        else{
+          alert(res.message);
+        }
+      })
+    }
   }
 }
