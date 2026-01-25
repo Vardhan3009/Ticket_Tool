@@ -1,1 +1,72 @@
-<p>parentcategory works!</p>
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-success">
+                Parent Category List
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Sr No.</th>
+                                    <th class="text-center">Category Name</th>
+                                    <th class="text-center">Department Name</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let item of gridList; let i = index">
+                                <tr>
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.deptName}}</td>
+                                    <!-- <td>{{item.createdDate | date: 'dd-mm-yyyy'}}</td> -->
+                                    <td class="text-center">
+                                        <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
+                                        <button class="btn btn-danger mx-2" (click)="onDelete(item.deptId)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-success">
+                New Department
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="">Category Name</label>
+                        <input [(ngModel)]="this.newObj.categoryName" type="text" class="form-control" />
+                    </div>
+                    <div class="col-12" *ngIf="this.newObj.categoryId==0">
+                        <label for="">Date of Creation</label>
+                        <select [(ngModel)]="this.newObj.deptId" class="form-select">
+                            <option value="">Select Dept</option>
+                            <option *ngFor="let item of deptList" [value]="item.deptId">{{item.deptName}}</option>
+                        </select>
+                        <!-- <input [(ngModel)]="newObj.createDate" type="date" class="form-control" /> -->
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col-6 text-center">
+                        <button class="btn btn-secondary">Reset</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <!-- @if(this.newDeptObj.deptId==0) {
+                        <button class="btn btn-secondary" (click)="saveDept()">Save Dept</button>
+                        } @else{
+                        <button class="btn btn-warning" (click)="saveDept()">Update Dept</button>
+                        } -->
+                        <button class="btn btn-success" (click)="save()" *ngIf="this.newObj.categoryId==0">Save Dept</button>
+                        <button class="btn btn-warning" (click)="update()" *ngIf="this.newObj.deptId!=0">Update Dept</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

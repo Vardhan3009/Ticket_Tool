@@ -9,6 +9,10 @@ export class Master {
   apiUrl: string = "http://localhost:3000/api/TicketsNew/";
 
   constructor(private http: HttpClient){  }
+
+  getAllRoles(){
+    return this.http.get(`${this.apiUrl}GetAllRoles`);
+  }
   
   login(obj:any){
     // debugger;
@@ -29,5 +33,53 @@ export class Master {
 
   deleteDept(id:number){
     return this.http.delete(`${this.apiUrl}DeleteDepartment?id=${id}`)
+  }
+
+  getAllpCategory(){
+    return this.http.get(`${this.apiUrl}GetParentCategory`)
+  }
+
+  createpCategory(obj:any){
+    return this.http.post(`${this.apiUrl}CreateParentCategory`, obj)
+  }
+
+  updatepCategory(obj:any){
+    return this.http.put(`${this.apiUrl}UpdateParentCategory`, obj)
+  }
+
+  deletepCategory(id:number){
+    return this.http.delete(`${this.apiUrl}DeleteParentCategory?id=${id}`)
+  }
+
+  getAllCCategory(){
+    return this.http.get(`${this.apiUrl}GetChildCategory`)
+  }
+
+  createCCategory(obj:any){
+    return this.http.post(`${this.apiUrl}CreateChildCategory`, obj)
+  }
+
+  updateCCategory(obj:any){
+    return this.http.put(`${this.apiUrl}UpdateChildCategory`, obj)
+  }
+
+  deleteCCategory(id:number){
+    return this.http.delete(`${this.apiUrl}DeleteChildCategory?id=${id}`)
+  }
+
+  getAllEmp(){
+    return this.http.get(`${this.apiUrl}GetEmployees`);
+  }
+
+  createEmp(obj:any){
+    return this.http.post(`${this.apiUrl}CreateEmployee`, obj); 
+  }
+
+  updateEmp(obj:any){
+    return this.http.put(`${this.apiUrl}UpdateEmployee`, obj);
+  }
+
+  deleteEmpById(id:number){
+    return this.http.delete(`${this.apiUrl}DeleteEmployee?id=${id}`);
   }
 }

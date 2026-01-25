@@ -1,17 +1,30 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
-    <li >
-      <a routerLink="dashboard">Dashboard</a>
-    </li>  
-    <li>
-      <a routerLink="department">Department</a>
-    </li>
-    <li>
-      <a>Dashboard</a>
-    </li>
-    <li>
-      <a>Dashboard</a>
-    </li>
+    <ul list-style-type="none" class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="dashboard">Dashboard</a>
+      </li>
+    </ul>
+    <ul list-style-type="none" class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="department">Department</a>
+      </li>
+    </ul>
+    <ul list-style-type="none" class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="parent-category">Parent Category</a>
+      </li>
+    </ul>
+    <ul list-style-type="none" class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="child-category">Child Category</a>
+      </li>
+    </ul>
+    <ul list-style-type="none" class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" routerLink="employee">Employee</a>
+      </li>
+    </ul>
     <form class="d-flex input-group w-auto">
       <button class="btn btn-outline-primary" type="button" (click)="onLogOut()">LogOut</button>
       <span class="input-group-text border-0" id="search-addon">
@@ -20,4 +33,5 @@
     </form>
   </div>
 </nav>
-<router-outlet></router-outlet> <!-- This is used to render the child component from router into this portion of the layout -->
+<router-outlet></router-outlet>
+<!-- This is used to render the child component from router into this portion of the layout -->

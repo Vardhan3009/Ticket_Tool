@@ -3,6 +3,9 @@ import { Login } from './pages/login/login';
 import { Layout } from './pages/layout/layout';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { Department } from './pages/department/department';
+import { Parentcategory } from './pages/parentcategory/parentcategory';
+import { ChildCategory } from './pages/child-category/child-category';
+import { Employee } from './pages/employee/employee';
 
 export const routes: Routes = [
     {
@@ -25,6 +28,18 @@ export const routes: Routes = [
             {
                 path:'department',
                 component: Department
+            },
+            {
+                path:'parent-category',
+                component: Parentcategory
+            },
+            {
+                path:'child-category',
+                component: ChildCategory
+            },
+            {
+                path: 'employee',
+                component: Employee
             }
         ]
     }
