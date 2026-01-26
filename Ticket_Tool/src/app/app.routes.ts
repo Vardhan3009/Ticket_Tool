@@ -6,6 +6,8 @@ import { Department } from './pages/department/department';
 import { Parentcategory } from './pages/parentcategory/parentcategory';
 import { ChildCategory } from './pages/child-category/child-category';
 import { Employee } from './pages/employee/employee';
+import { NewTicket } from './pages/new-ticket/new-ticket';
+import { TicketList } from './pages/ticket-list/ticket-list';
 
 export const routes: Routes = [
     {
@@ -40,6 +42,14 @@ export const routes: Routes = [
             {
                 path: 'employee',
                 component: Employee
+            },
+            {
+                path:'new-ticket',
+                component: NewTicket
+            },
+            {
+                path: 'ticket-list',
+                component: TicketList
             }
         ]
     }

@@ -1,1 +1,41 @@
-<p>ticket-list works!</p>
+<div class="row">
+    <div class="col-12 text-center">
+        <div class="btn-group">
+            <button type="button" (click)="changeMode('My Tickets')" [class]="mode== 'My Tickets' ? 'btn btn-success' : 'btn btn-primary'">My Tickets</button>
+            <button type="button" (click)="changeMode('Assigned Tickets')" [class]="mode== 'Assigned Tickets' ? 'btn btn-success' : 'btn btn-primary'">Assigned Ticket</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Sr No</th>
+                    <th class="text-center">Ticket No</th>
+                    <th class="text-center">Department</th>
+                    <th class="text-center">Created By</th>
+                    <th class="text-center">State</th>
+                    <th class="text-center">Contact No.</th>
+                    <th class="text-center">Assigned To</th>
+                    <th class="text-center">Category</th>
+                    <th class="text-center">Sub Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

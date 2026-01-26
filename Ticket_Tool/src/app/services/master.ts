@@ -82,4 +82,16 @@ export class Master {
   deleteEmpById(id:number){
     return this.http.delete(`${this.apiUrl}DeleteEmployee?id=${id}`);
   }
+
+  newTicket(obj:any){
+    return this.http.post(`${this.apiUrl}CreateNewTicket`, obj);
+  }
+
+  getTicketsCreatedByLoggedEmp(empId:number){
+    return this.http.get(`${this.apiUrl}GetTicketsCreatedByEmpId?empId=${empId}`)
+  }
+
+  getTicketAssignedToEmp(empId:number){
+    return this.http.get(`${this.apiUrl}GetAssignedTikcetByEmpId?empId=${empId}`)
+  }
 }
