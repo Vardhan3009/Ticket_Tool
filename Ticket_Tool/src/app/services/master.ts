@@ -94,4 +94,12 @@ export class Master {
   getTicketAssignedToEmp(empId:number){
     return this.http.get(`${this.apiUrl}GetAssignedTikcetByEmpId?empId=${empId}`)
   }
+
+  startTicket(ticketId:number){
+    return this.http.post(`${this.apiUrl}StartTicket?id=${ticketId}`, {});
+  }
+
+  closeTicket(ticketId:number){
+    return this.http.post(`${this.apiUrl}closeTicket?id=${ticketId}`, {});
+  }
 }

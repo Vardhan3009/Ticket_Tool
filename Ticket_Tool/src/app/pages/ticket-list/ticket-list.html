@@ -9,33 +9,71 @@
 
 <div class="row">
     <div class="col-12">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th class="text-center">Sr No</th>
-                    <th class="text-center">Ticket No</th>
-                    <th class="text-center">Department</th>
-                    <th class="text-center">Created By</th>
-                    <th class="text-center">State</th>
-                    <th class="text-center">Contact No.</th>
-                    <th class="text-center">Assigned To</th>
-                    <th class="text-center">Category</th>
-                    <th class="text-center">Sub Category</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        @if(mode== 'My Tickets'){
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Ticket No</th>
+                        <th class="text-center">Department</th>
+                        <th class="text-center">Created By</th>
+                        <th class="text-center">Contact No.</th>
+                        <th class="text-center">Created Date</th>
+                        <th class="text-center">State</th>
+                        <th class="text-center">Assigned To</th>
+                        <th class="text-center">Category</th>
+                        <th class="text-center">Sub Category</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of ticketList">
+                        <td>{{item.ticketNo}}</td>
+                        <td>{{item.deptName}}</td>    
+                        <td>{{item.createdByEmployee}}</td>
+                        <td>{{item.contactNo}}</td>
+                        <td>{{item.createdDate}}</td>
+                        <td>{{item.state}}</td>
+                        <td>{{item.assignedToEmployee}}</td>
+                        <td>{{item.parentCategory}}</td>
+                        <td>{{item.childCategory}}</td>
+                        <td>
+                            <button *ngIf="item.state=='Assigned'" class="btn btn-success" (click)="changeStatus('Start', item.ticketId)">Start</button>
+                            <button *ngIf="item.state=='In-Progress'" class="btn btn-primary" (click)="changeStatus('Close', item.ticketId)">Close</button>
+                            <!-- <button *ngIf="item.state=='Resolved'" class="btn btn-danger">Close -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        } @else{
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">Ticket No</th>
+                        <th class="text-center">Department</th>
+                        <th class="text-center">Created By</th>
+                        <th class="text-center">Contact No.</th>
+                        <th class="text-center">Created Date</th>
+                        <th class="text-center">State</th>
+                        <th class="text-center">Assigned To</th>
+                        <th class="text-center">Category</th>
+                        <th class="text-center">Sub Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of ticketList">
+                        <td>{{item.ticketNo}}</td>
+                        <td>{{item.deptName}}</td>    
+                        <td>{{item.createdByEmployee}}</td>
+                        <td>{{item.contactNo}}</td>
+                        <td>{{item.createdDate}}</td>
+                        <td>{{item.state}}</td>
+                        <td>{{item.assignedToEmployee}}</td>
+                        <td>{{item.parentCategory}}</td>
+                        <td>{{item.childCategory}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        
     </div>
 </div>
