@@ -2,18 +2,23 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Master } from '../../services/master';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
-
+  // user: string='oldUser';
   loginObj:any={
     "emailId": "",
     "password": ""
+  }
+
+  signUpObj:any={
+    
   }
 
   masterSrv=inject(Master);
@@ -32,5 +37,9 @@ export class Login {
         alert(res.message);
       }
     })
+  }
+
+  onSignUp(){
+    this.router.navigateByUrl('/SignUp');
   }
 }

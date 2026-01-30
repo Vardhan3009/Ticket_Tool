@@ -8,6 +8,7 @@ import { ChildCategory } from './pages/child-category/child-category';
 import { Employee } from './pages/employee/employee';
 import { NewTicket } from './pages/new-ticket/new-ticket';
 import { TicketList } from './pages/ticket-list/ticket-list';
+import { Signup } from './pages/signup/signup';
 
 export const routes: Routes = [
     {
@@ -18,6 +19,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: Login
+    },
+    {
+        path:  'SignUp',
+        component: Signup
     },
     {
         path: '',

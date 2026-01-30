@@ -19,6 +19,10 @@ export class Master {
     return this.http.post(this.apiUrl + "Login", obj);
   }
 
+  signUp(obj:any){
+    return this.http.post(this.apiUrl + "SignUp", obj);
+  }
+
   getAllDept(){
     return this.http.get(`${this.apiUrl}GetDepartments`)
   }
